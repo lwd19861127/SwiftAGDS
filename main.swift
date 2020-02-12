@@ -8,11 +8,6 @@
 
 import Foundation
 
-if let index = binarySearch([1, 2, 3, 4, 5, 6, 7, 8], 7) {
-    print("Found at \(index)")
-}
-
-
-let _ = bubbleSort([1, 2, 3, 4, 5], <) // ascending order
-let _ = bubbleSort([1, 2, 3, 4, 5], >) // descending order
-
+var uniquePermuations = Set<String>()
+permutationUnique("aabbcd", "", &uniquePermuations)
+print(uniquePermuations)
