@@ -33,14 +33,15 @@ public final class Bag<E> : Sequence {
     
     /// Returns true if this bag is empty.
     public func isEmpty() -> Bool {
-        // MARK: - TODO
-        return false
+        return first == nil
     }
     
     /// Adds the item to this bag. (front)
     /// - Parameter item: the item to add to this bag
     public func add(item: E) {
-        // MARK: - TODO
+        let oldFirst = first
+        first = Node<E>(item: item, next: oldFirst)
+        count += 1
     }
     
     
@@ -50,11 +51,14 @@ public final class Bag<E> : Sequence {
         private var current: Node<E>?
         
         fileprivate init(_ first: Node<E>?) {
-            // MARK: - TODO
+            self.current = first
         }
         
         public mutating func next() -> E? {
-            // MARK: - TODO
+            if let item = current?.item {
+                current = current?.next
+                return item
+            }
             return nil
         }
         
@@ -64,5 +68,11 @@ public final class Bag<E> : Sequence {
     /// Returns an iterator that iterates over the items in this bag in reverse order.
     public __consuming func makeIterator() -> BagIterator<E> {
         return BagIterator<E>(first)
+    }
+}
+
+extension Bag: CustomStringConvertible {
+    public var description: String {
+        return self.reduce(into: "") { $0 += "\($1) " }
     }
 }

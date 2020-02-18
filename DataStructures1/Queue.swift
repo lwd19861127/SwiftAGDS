@@ -34,25 +34,33 @@ public final class Queue<E> : Sequence {
     
     /// Returns true if this queue is empty.
     public func isEmpty() -> Bool {
-        // MARK: - TODO
-        return false
+        return first == nil
     }
     
     /// Returns the item least recently added to this queue.
     public func peek() -> E? {
-        // MARK: - TODO
-        return nil
+        return first?.item
     }
     
     /// Adds the item to this queue
     /// - Parameter item: the item to add
     public func enqueue(item: E) {
-        // MARK: - TODO
+        let oldLast = last
+        last = Node<E>(item: item)
+        if isEmpty() { first = last }
+        else { oldLast?.next = last }
+        count += 1
     }
     
     /// Removes and returns the item on this queue that was least recently added.
     public func dequeue() -> E? {
-        // MARK: - TODO
+        if let item = first?.item {
+            first = first?.next
+            count -= 1
+            // to avoid loitering
+            if isEmpty() { last = nil }
+            return item
+        }
         return nil
     }
     
@@ -61,11 +69,14 @@ public final class Queue<E> : Sequence {
         private var current: Node<E>?
         
         fileprivate init(_ first: Node<E>?) {
-            // MARK: - TODO
+            self.current = first
         }
         
         public mutating func next() -> E? {
-            // MARK: - TODO
+            if let item = current?.item {
+                current = current?.next
+                return item
+            }
             return nil
         }
         

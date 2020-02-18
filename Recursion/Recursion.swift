@@ -115,4 +115,3 @@ func evaluate(_ expr: String) -> Int {
     var i = expr.startIndex
     return evaluateHelper(expr, &i)
 }
-
