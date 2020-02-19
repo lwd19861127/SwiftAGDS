@@ -8,6 +8,8 @@
 
 import Foundation
 
-var uniquePermuations = Set<String>()
-permutationUnique("aabbcd", "", &uniquePermuations)
-print(uniquePermuations)
+//var uniquePermuations = Set<String>()
+//permutationUnique("aabbcd", "", &uniquePermuations)
+//print(uniquePermuations)
+
+treeTraveral()
