@@ -14,5 +14,5 @@ import Foundation
 
 //treeTraveral()
 
-//WhosMyParent()
-Diameter()
+WhosMyParent()
+//Diameter()

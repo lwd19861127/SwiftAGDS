@@ -12,7 +12,6 @@ import Foundation
 func WhosMyParent() {
     let n = Int(readLine()!)! // num of vertices
     var adjList = [[Int]](repeating: [], count: n + 1)
-    var depth = [Int](repeating: 0, count: n + 1)
     var check = [Bool](repeating: false, count: n + 1)
     var parent = [Int](repeating: 0, count: n + 1)
     
@@ -24,7 +23,6 @@ func WhosMyParent() {
         adjList[v].append(u)
     }
     
-    depth[1] = 0
     check[1] = true
     let q = Queue<Int>()
     q.enqueue(item: 1)
@@ -33,7 +31,6 @@ func WhosMyParent() {
         let x = q.dequeue()!
         for v in adjList[x] {
             if (!check[v]) {
-                depth[v] = depth[x] + 1
                 check[v] = true
                 parent[v] = x
                 q.enqueue(item: v)
