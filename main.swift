@@ -12,4 +12,7 @@ import Foundation
 //permutationUnique("aabbcd", "", &uniquePermuations)
 //print(uniquePermuations)
 
-treeTraveral()
+//treeTraveral()
+
+//WhosMyParent()
+Diameter()
