@@ -1,5 +1,5 @@
 //
-//  DFS.swift
+//  ConnectedComponents.swift
 //  SwiftAlgorithmsDataStructures
 //
 //  Created by Derrick Park on 2/25/20.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-func storeInAdjacencyListAndDFS() {
+func connectedComponents() {
     let firstLine = readLine()!.split(separator: " ")
     // # of vertices
     let n = Int(firstLine[0])!
@@ -33,7 +33,7 @@ func storeInAdjacencyListAndDFS() {
             }
         }
     }
-    
+
     var visited = [Bool](repeating: false, count: n + 1)
     var count = 0
     for v in 1..<adjList.count {
@@ -44,3 +44,4 @@ func storeInAdjacencyListAndDFS() {
     }
     print(count) // # of connected components
 }
+
